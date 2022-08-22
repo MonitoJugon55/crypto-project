@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Inicio</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        
+        <ion-content id="contentInicio">
+            <ion-grid>
+                <ion-card>
+                    <ion-card-header color='primary'>
+                        <ion-card-title>
+                            Que desea hacer?
+                        </ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content class="ion-margin-vertical">
+                        <ion-row class="ion-justify-content-around">
+                            <ion-button color="secondary"  id="btnIniciarSesion" href="/iniciarSesion.html">
+                                Iniciar Sesion
+                            </ion-button>
+                            <ion-button color="secondary" fill="outline" id="btnRegistrarse" href="/registro.html">
+                                Registrarse
+                            </ion-button>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-grid>
+        </ion-content>
+        
+
+        
+        
+
+
+    </ion-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script src="js/codigoIndex.js"></script>
+</body>
+
+</html>

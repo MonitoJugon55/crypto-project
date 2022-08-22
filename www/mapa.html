@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    
+    <title>Obligatorio</title>
+</head>
+
+<body>
+    <ion-app>
+        
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-button color="light" class="ion-margin-start" slot="start" href="Inicio.html">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </ion-button>
+                <ion-title>Inicio</ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+            <ion-grid>
+                <ion-card>
+                    <ion-card-header color='primary'>
+                        <ion-card-title>
+                            Mapa
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div id="map" class="ion-margin-vertical"></div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-grid>
+        </ion-content>
+    </ion-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <script src="js/codigoMapa.js"></script>
+</body>
+
+</html>

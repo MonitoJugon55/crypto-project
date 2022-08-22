@@ -1,0 +1,14 @@
+.divTable{
+    margin-top: 20px;
+}
+
+
+#map { 
+    height: 430px;
+    width: 460px; 
+}
+
+.lista{
+    max-height: 450px;
+    overflow-y: scroll;   
+}

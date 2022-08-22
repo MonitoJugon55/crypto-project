@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+</head>
+
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Inicio</ion-title>
+                <ion-button color="light" id="btnCerrarSesion" class="ion-margin-end" slot="end">
+                    Cerrar Sesion
+                </ion-button>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content id="contentCuenta">
+            <ion-card>
+                <ion-card-header color='primary'>
+                    <ion-card-title>
+                        Lista de monedas
+                    </ion-card-title>
+                </ion-card-header>
+                <div class="divTable">
+                    <table id="tablaMonedas" border="1" align="center">
+
+                    </table>
+                </div>
+                <ion-card-content>
+                    <ion-item id="itemMostrarMonedas">
+                        <ion-button color="secondary" fill="outline" id="btnMostrarMonedas" class="ion-margin-vertical">
+                            Mostrar lista de monedas
+                        </ion-button>
+                    </ion-item>
+                    <ion-item style="display: none;" id="btnOcultarMonedas">
+                        <ion-button color="secondary" fill="outline" class="ion-margin-vertical">
+                            Ocultar lista de monedas
+                        </ion-button>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header color='primary'>
+                    <ion-card-title>
+                        Agregar una transaccion
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list>
+                        <ion-radio-group id='radioBtn' value="tipoOperacion">
+                            <ion-list-header>
+                                <ion-label>Tipo de transaccion:</ion-label>
+                            </ion-list-header>
+
+                            <ion-item>
+                                <ion-label>Compra</ion-label>
+                                <ion-radio id="opCompra" slot="end" value="1">Compra</ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Venta</ion-label>
+                                <ion-radio id="opVenta" slot="end" value="2">Venta</ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+                    </ion-list>
+
+                    <ion-item>
+                        <ion-label>Cantidad: </ion-label>
+                        <ion-input type='number' id="cantTransaccion"></ion-input>
+                    </ion-item>
+
+                    <ion-list>
+                        <ion-item>
+                            <ion-select interface="action-sheet" placeholder="Seleccionar moneda..." id="selectMonedas">
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+
+                    <ion-item>
+                        <ion-button color="secondary" fill="outline" id="btnAgregarTransaccion"
+                            class="ion-margin-vertical">
+                            Agregar transaccion
+                        </ion-button>
+                    </ion-item>
+                    <p id="mensajeTransaccion"></p>
+                </ion-card-content>
+            </ion-card>
+            <ion-card class="lista">
+                <ion-card-header color='primary'>
+                    <ion-card-title>
+                        Listado de transacciones:
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list>
+                        <ion-item>
+                            <ion-select interface="action-sheet" placeholder="Seleccionar moneda..." id="selectMonedas2"
+                                class="selectMonedas">
+                                <ion-select-option value="monedas">Todas las monedas</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                    <div class="divTable">
+                        <table id="listaTransacciones" border="1" align="center">
+                        </table>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-card-header color='primary'>
+                    <ion-card-title>
+                        Monto final de inversiones
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Apartado para ver sus perdidas/ganancias:</ion-label>
+                    </ion-item>
+                    <ion-button color="secondary" class="ion-margin-vertical" href="inversiones.html">
+                        Acceder
+                    </ion-button>
+
+                    <p class="ion-margin-vertical" id="mensajeLogin"></p>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header color='primary'>
+                    <ion-card-title>
+                        Mapa de usuarios
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <div id="map" class="ion-margin-vertical"></div>
+                </ion-card-content>
+            </ion-card>
+        </ion-content>
+
+
+    </ion-app>
+
+
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script src="js\codigoInicio.js"></script>
+</body>
+
+</html>
